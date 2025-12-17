@@ -55,7 +55,7 @@ export const PROJECTS: Project[] = [
     name: 'CleaningSchedule',
     description:
       'Lightweight site generating synchronized local seed-based task schedules.',
-    link: 'https://huisgenootjes.nl',
+    link: 'https://huisgenootjes.space',
     id: 'project4',
     image: '/images/cleaning_schedule.png',
   },
