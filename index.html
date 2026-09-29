@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Stan Theunissen · Software engineer</title>
+    <meta name="description" content="Stan Theunissen, software engineer in Eindhoven. AI agents, autonomous systems and the infrastructure they run on." />
+    <meta name="theme-color" content="#eeeeec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Stan Theunissen · Software engineer" />
+    <meta property="og:description" content="AI agents, autonomous systems and the infrastructure they run on. A site that stores everything it shows in a simulated core memory." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stantheunissen.nl/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        if (localStorage.getItem('motion') !== 'reduce' && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('pre')
+      } catch (e) {}
+    </script>
+    <style>
+      /* hero text waits for the first write; CSS reveals it anyway if scripts never arrive */
+      html.pre #top [data-scan] { clip-path: inset(0 100% 0 0); animation: pre-reveal 0s 2.5s forwards; }
+      @keyframes pre-reveal { to { clip-path: inset(0 0 0 0); } }
+    </style>
+  </head>
+  <body>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <!--bar-->
+    <main id="app" class="page"><!--app--></main>
+    <script type="module" src="/src/a/main.ts"></script>
+  </body>
+</html>

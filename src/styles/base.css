@@ -1,0 +1,449 @@
+/* ─── Remanence · shared tokens and atoms ───────────────────────────────
+   Two themes, one accent. Orange is current: it only appears where
+   something is flowing (hover, focus, live signals). */
+
+:root {
+  color-scheme: light;
+  --ground: #eeeeec;
+  --ink: #121211;
+  --ink-2: #5a5854;
+  --ink-3: #8e8c87;
+  --rule: #d5d3ce;
+  --rule-strong: #b4b2ad;
+  --signal: #e2470f;
+  --signal-ink: #b93a0b;
+
+  --gl-dark: 0;
+  --gl-ground: #eeeeec;
+  --gl-line: #c9c7c2;
+  --gl-line-hi: #9e9c97;
+  --gl-signal: #eb4b12;
+  --gl-ring-off: #e0dfdb;
+  --gl-ring-on: #161514;
+  --gl-rim: #ffffff;
+  --gl-seg-off: #dddcd8;
+  --gl-seg-on: #eb4b12;
+  --gl-dust: #b2b0ab;
+
+  --font: 'Mona Sans Variable', 'Mona Sans', ui-sans-serif, system-ui, sans-serif;
+  --mono: 'Geist Mono Variable', 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --margin: clamp(16px, 3.4vw, 56px);
+  --gutter: clamp(12px, 1.6vw, 24px);
+  --bar: 64px;
+  --glide: cubic-bezier(0.16, 1, 0.3, 1);
+  --settle: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --ground: #0a0a0a;
+    --ink: #ece8e2;
+    --ink-2: #9b968f;
+    --ink-3: #5d5954;
+    --rule: #201f1d;
+    --rule-strong: #3a3733;
+    --signal: #ff5b1f;
+    --signal-ink: #ff7a45;
+    --gl-dark: 1;
+    --gl-ground: #0a0a0a;
+    --gl-line: #2a2825;
+    --gl-line-hi: #4b4742;
+    --gl-signal: #ff5b1f;
+    --gl-ring-off: #242220;
+    --gl-ring-on: #efe8de;
+    --gl-rim: #ffffff;
+    --gl-seg-off: #1b1a18;
+    --gl-seg-on: #ff5b1f;
+    --gl-dust: #4a4641;
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --ground: #0a0a0a;
+  --ink: #ece8e2;
+  --ink-2: #9b968f;
+  --ink-3: #5d5954;
+  --rule: #201f1d;
+  --rule-strong: #3a3733;
+  --signal: #ff5b1f;
+  --signal-ink: #ff7a45;
+  --gl-dark: 1;
+  --gl-ground: #0a0a0a;
+  --gl-line: #2a2825;
+  --gl-line-hi: #4b4742;
+  --gl-signal: #ff5b1f;
+  --gl-ring-off: #242220;
+  --gl-ring-on: #efe8de;
+  --gl-rim: #ffffff;
+  --gl-seg-off: #1b1a18;
+  --gl-seg-on: #ff5b1f;
+  --gl-dust: #4a4641;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.5;
+  font-stretch: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  transition: background-color 0.4s var(--settle), color 0.4s var(--settle);
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul,
+figure {
+  margin: 0;
+}
+
+ol,
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--ground);
+}
+
+:focus-visible {
+  outline: 1px solid var(--signal);
+  outline-offset: 4px;
+}
+
+.sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 450;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
+/* ─── the GL layer ──────────────────────────────────────────────────── */
+
+#gl {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── wire links: current runs along the underline on hover ─────────── */
+
+.wire {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 0.18em;
+  cursor: pointer;
+}
+
+.wire::before,
+.wire::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--rule-strong);
+}
+
+.wire::after {
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.5s var(--glide);
+}
+
+.wire:hover::after,
+.wire:focus-visible::after,
+.wire[aria-current='true']::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.wire:focus-visible {
+  outline: none;
+}
+
+.wire.hot::before {
+  background: var(--signal);
+}
+
+/* ─── top bar ───────────────────────────────────────────────────────── */
+
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  height: var(--bar);
+  padding: 0 var(--margin);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 15px;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.bar > * {
+  pointer-events: auto;
+}
+
+.bar .brand {
+  font-weight: 620;
+  letter-spacing: -0.01em;
+}
+
+.bar nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 32px);
+}
+
+.bar nav a {
+  color: var(--ink-2);
+  transition: color 0.2s;
+}
+
+.bar nav a:hover,
+.bar nav a[aria-current='true'] {
+  color: var(--ink);
+}
+
+.bar .kbd {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-2);
+  padding: 4px 0;
+}
+
+.bar .menu {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .bar nav a {
+    display: none;
+  }
+  .bar .kbd {
+    display: none;
+  }
+  .bar .menu {
+    display: inline-block;
+  }
+}
+
+/* ─── command palette ───────────────────────────────────────────────── */
+
+.palette {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: start center;
+  padding: max(10vh, 72px) var(--margin) 24px;
+  background: color-mix(in srgb, var(--ground) 72%, transparent);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.18s var(--settle), visibility 0s linear 0.18s;
+}
+
+.palette.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.18s var(--settle);
+}
+
+.palette-panel {
+  width: min(600px, 100%);
+  background: var(--ground);
+  border: 1px solid var(--rule-strong);
+  transform: translateY(-6px);
+  transition: transform 0.35s var(--glide);
+}
+
+.palette.open .palette-panel {
+  transform: none;
+}
+
+.palette-input {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  padding: 18px 20px;
+  font-size: 19px;
+  font-weight: 500;
+  outline: none;
+}
+
+.palette-input::placeholder {
+  color: var(--ink-3);
+}
+
+.palette-list {
+  max-height: min(56vh, 460px);
+  overflow-y: auto;
+  padding: 6px 0;
+  overscroll-behavior: contain;
+}
+
+.palette-group {
+  padding: 12px 20px 4px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.palette-item {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 9px 20px;
+  text-align: left;
+  font-size: 16px;
+  position: relative;
+}
+
+.palette-item .hint {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+.palette-item[aria-selected='true'] {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ink) 6%, transparent);
+}
+
+.palette-item[aria-selected='true']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--signal);
+}
+
+.palette-empty {
+  padding: 18px 20px;
+  color: var(--ink-3);
+}
+
+.palette-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+}
+
+/* ─── toast-free feedback: a line of mono text that appears where you acted */
+
+.flash {
+  position: fixed;
+  z-index: 70;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink);
+  background: var(--ground);
+  padding: 4px 8px;
+  border: 1px solid var(--rule-strong);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s, transform 0.3s var(--glide);
+}
+
+.flash.show {
+  opacity: 1;
+  transform: none;
+}
+
+.reduced *,
+.reduced *::before,
+.reduced *::after {
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+}
+
+.scanline {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 1.5px;
+  margin-left: -1px;
+  background: var(--signal);
+  pointer-events: none;
+  z-index: 2;
+}

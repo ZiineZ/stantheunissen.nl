@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Stan Theunissen · Software engineer</title>
+    <meta name="description" content="Stan Theunissen, software engineer in Eindhoven. AI agents, autonomous systems and the infrastructure they run on." />
+    <meta name="theme-color" content="#eeeeec" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Stan Theunissen · Software engineer" />
+    <meta property="og:description" content="AI agents, autonomous systems and the infrastructure they run on. A site that stores everything it shows in a simulated core memory." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://stantheunissen.nl/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      try {
+        var t = localStorage.getItem('theme')
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t
+        if (localStorage.getItem('motion') !== 'reduce' && !matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('pre')
+      } catch (e) {}
+    </script>
+    <style>html.pre #top [data-scan]{clip-path:inset(0 100% 0 0);animation:0s 2.5s forwards pre-reveal}@keyframes pre-reveal{to{clip-path:inset(0)}}</style>
+    <script type="module" crossorigin src="/assets/main-u55-lFdu.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-B1_NZ7y8.css">
+  </head>
+  <body>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    
+<header class="bar">
+  <a class="brand" href="/#top" data-nav="top">Stan Theunissen</a>
+  <nav aria-label="Sections">
+    <a class="wire" href="/#work" data-nav="work">Work</a><a class="wire" href="/#index" data-nav="index">Index</a><a class="wire" href="/#about" data-nav="about">About</a><a class="wire" href="/lab" data-nav="lab">Lab</a><a class="wire" href="/#contact" data-nav="contact">Contact</a>
+    <button class="kbd wire" type="button" data-palette aria-label="Open command palette">⌘K</button>
+  </nav>
+  <button class="menu wire" type="button" data-palette aria-label="Open menu">Menu</button>
+</header>
+    <main id="app" class="page">
+<section class="sec hero" id="top" data-plane="hero" aria-labelledby="hero-name">
+  <h1 id="hero-name" class="hero-fallback">Stan Theunissen</h1>
+  <div class="slot slot-name" data-slot="name" aria-hidden="true"></div>
+  <div class="hero-foot">
+    <p class="lead" data-scan>Software engineer. I build AI agents, autonomous systems and the infrastructure they run on.</p>
+    <div class="hero-side">
+      <p class="avail" data-scan><span>Available</span> for internships and ambitious projects</p>
+      <p class="now" data-scan>Computer Science at TU/e, year three. Infrastructure at LIS. Autonomy at Team Polar.</p>
+      <div class="hero-cta">
+        <a class="wire cta" href="mailto:s.l.h.theunissen@gmail.com">Email me</a>
+        <button class="mono copy" type="button" data-copy="s.l.h.theunissen@gmail.com" aria-label="Copy email address">s.l.h.theunissen@gmail.com</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec work" id="work-agent" data-plane="work" data-slug="agent" aria-labelledby="t-agent">
+  <span class="anchor" id="work"></span>
+  <div class="work-grid">
+    <div class="work-text">
+      <p class="kicker mono">Solo build · ongoing</p>
+      <h2 class="title" id="t-agent" data-kinetic>Personal agent</h2>
+      <p class="summary" data-scan>My own AI agent. A harness I wrote myself, wrapped around a sandboxed virtual machine with its own tools, so it can do the work instead of describing it.</p>
+      <ul class="facts"><li data-scan>Custom harness</li><li data-scan>Own sandboxed VM</li><li data-scan>Own tooling layer</li></ul>
+      
+      <p class="more"><a class="wire" href="/work/agent" data-route>Read the build</a></p>
+    </div>
+    <div class="slot slot-mark" data-slot="mark" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sec work flip" id="work-hiriqa" data-plane="work" data-slug="hiriqa" aria-labelledby="t-hiriqa">
+  
+  <div class="work-grid">
+    <div class="work-text">
+      <p class="kicker mono">Built solo · 2026 · in development</p>
+      <h2 class="title" id="t-hiriqa" data-kinetic>Hiriqa</h2>
+      <p class="summary" data-scan>Cold job outreach, automated. Hiriqa collects companies, finds the right person, reads their site and drafts the email. You review, then send.</p>
+      <ul class="facts"><li data-scan>Five agent workers behind a semaphore queue</li><li data-scan>Live run view over Server-Sent Events</li><li data-scan>Replies pulled over IMAP and sorted by intent</li><li data-scan>Follow-ups that cancel themselves on reply</li></ul>
+      <p class="stack mono" data-scan>Next.js<span> · </span>Prisma<span> · </span>PostgreSQL<span> · </span>OpenRouter<span> · </span>Nodemailer<span> · </span>Cheerio</p>
+      <p class="more"><a class="wire" href="/work/hiriqa" data-route>Read the build</a></p>
+    </div>
+    <div class="slot slot-mark" data-slot="mark" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sec work" id="work-polar" data-plane="work" data-slug="polar" aria-labelledby="t-polar">
+  
+  <div class="work-grid">
+    <div class="work-text">
+      <p class="kicker mono">Autonomy · TU/e student team</p>
+      <h2 class="title" id="t-polar" data-kinetic>Team Polar</h2>
+      <p class="summary" data-scan>Software for Team Polar’s autonomous rover: the part that lets it drive itself. The repository is private; ask and I’ll walk you through it.</p>
+      <ul class="facts"><li data-scan>Autonomous rover</li><li data-scan>TU/e student team</li><li data-scan>Private repository</li></ul>
+      
+      <p class="more"><a class="wire" href="/work/polar" data-route>Read the build</a></p>
+    </div>
+    <div class="slot slot-mark" data-slot="mark" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sec work flip" id="work-aica-3" data-plane="work" data-slug="aica-3" aria-labelledby="t-aica-3">
+  
+  <div class="work-grid">
+    <div class="work-text">
+      <p class="kicker mono">Multi-agent tutor · 2026</p>
+      <h2 class="title" id="t-aica-3" data-kinetic>AICA-3</h2>
+      <p class="summary" data-scan>A tutor for university courses. Behind one chat box, a supervisor and a small team of agents plan the turn, pull the course material, choose the teaching move and check the answer.</p>
+      <ul class="facts"><li data-scan>Turn time down from ~40 s to ~8 s</li><li data-scan>Parallel worker agents on Cerebras</li><li data-scan>Answers stream token by token</li><li data-scan>Roadmap, exercises and wiki update themselves</li></ul>
+      <p class="stack mono" data-scan>Next.js<span> · </span>TypeScript<span> · </span>FastAPI<span> · </span>PostgreSQL + pgvector<span> · </span>Cerebras<span> · </span>OpenRouter</p>
+      <p class="more"><a class="wire" href="/work/aica-3" data-route>Read the build</a><a class="wire" href="https://github.com/ZiineZ/aica-3" target="_blank" rel="noopener">Source</a></p>
+    </div>
+    <div class="slot slot-mark" data-slot="mark" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sec work" id="work-gewis-rdp" data-plane="work" data-slug="gewis-rdp" aria-labelledby="t-gewis-rdp">
+  
+  <div class="work-grid">
+    <div class="work-text">
+      <p class="kicker mono">Rust · Tauri 2 · 2026</p>
+      <h2 class="title" id="t-gewis-rdp" data-kinetic>GEWIS Remote Desktop</h2>
+      <p class="summary" data-scan>Microsoft’s Mac client can’t speak the Kerberos the GEWIS gateway requires, and Homebrew’s FreeRDP ships without it. So I built a client that can.</p>
+      <ul class="facts"><li data-scan>Bundled FreeRDP built with Kerberos</li><li data-scan>Hardware H.264 decode via VideoToolbox</li><li data-scan>Skips the gateway on TU/e WiFi</li><li data-scan>Installers for macOS and Windows</li></ul>
+      <p class="stack mono" data-scan>Rust<span> · </span>Tauri 2<span> · </span>FreeRDP<span> · </span>SDL3<span> · </span>Metal</p>
+      <p class="more"><a class="wire" href="/work/gewis-rdp" data-route>Read the build</a><a class="wire" href="https://github.com/ZiineZ/gewis-rdp" target="_blank" rel="noopener">Source</a><a class="wire" href="https://github.com/ZiineZ/gewis-rdp/releases" target="_blank" rel="noopener">Releases</a></p>
+    </div>
+    <div class="slot slot-mark" data-slot="mark" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="sec index" id="index" data-plane="index" aria-labelledby="h-index">
+  <h2 class="head" id="h-index" data-kinetic>Index</h2>
+  <ol class="rows"><li><a class="row" data-row="agent" href="/work/agent" data-route>
+      <span class="r-title">Personal agent</span>
+      <span class="r-kind">AI agent</span>
+      <span class="r-stack mono"></span>
+      <span class="r-year mono">Now</span>
+    </a></li><li><a class="row" data-row="hiriqa" href="/work/hiriqa" data-route>
+      <span class="r-title">Hiriqa</span>
+      <span class="r-kind">AI platform</span>
+      <span class="r-stack mono">Next.js · Prisma · PostgreSQL</span>
+      <span class="r-year mono">2026</span>
+    </a></li><li><a class="row" data-row="polar" href="/work/polar" data-route>
+      <span class="r-title">Team Polar</span>
+      <span class="r-kind">Autonomy</span>
+      <span class="r-stack mono"></span>
+      <span class="r-year mono">Now</span>
+    </a></li><li><a class="row" data-row="aica-3" href="/work/aica-3" data-route>
+      <span class="r-title">AICA-3</span>
+      <span class="r-kind">Multi-agent tutor</span>
+      <span class="r-stack mono">Next.js · TypeScript · FastAPI</span>
+      <span class="r-year mono">2026</span>
+    </a></li><li><a class="row" data-row="gewis-rdp" href="/work/gewis-rdp" data-route>
+      <span class="r-title">GEWIS Remote Desktop</span>
+      <span class="r-kind">Native app</span>
+      <span class="r-stack mono">Rust · Tauri 2 · FreeRDP</span>
+      <span class="r-year mono">2026</span>
+    </a></li><li><div class="row" data-row="seaside">
+      <span class="r-title">Seaside Technologies</span>
+      <span class="r-kind">Website</span>
+      <span class="r-stack mono">vinext · Paper Shaders</span>
+      <span class="r-year mono">2026</span>
+    </div></li><li><div class="row" data-row="city-robot">
+      <span class="r-title">City-mapping robot</span>
+      <span class="r-kind">Robotics</span>
+      <span class="r-stack mono">ROS2 · Python · Gazebo</span>
+      <span class="r-year mono">2025</span>
+    </div></li><li><a class="row" data-row="this-site" href="https://github.com/ZiineZ" target="_blank" rel="noopener">
+      <span class="r-title">This site</span>
+      <span class="r-kind">This site</span>
+      <span class="r-stack mono">TypeScript · WebGL · three.js</span>
+      <span class="r-year mono">2026</span>
+    </a></li></ol>
+  <div class="slot slot-index" data-slot="index" aria-hidden="true"></div>
+</section>
+
+<section class="sec about" id="about" data-plane="about" aria-labelledby="h-about">
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="head" id="h-about" data-kinetic>About</h2>
+      <p class="bio" data-scan>Third-year Computer Science at TU/e, in Eindhoven. I write a lot of software, and most of it now runs on agents: harnesses, tool layers, pipelines that finish real work. I also keep infrastructure running at LIS and work on autonomy for Team Polar.</p>
+      <ol class="timeline" data-timeline><li data-start="2024-09" data-end=""><span class="t-label">Computer Science, TU/e</span><span class="t-detail">BSc, year three</span><span class="t-when mono">09.2024 → now</span></li><li data-start="2026-05" data-end=""><span class="t-label">Technical infrastructure, LIS</span><span class="t-detail">Networks, access management, databases</span><span class="t-when mono">05.2026 → now</span></li></ol>
+    </div>
+    <div class="slot slot-portrait" data-slot="portrait" role="img" aria-label="Portrait of Stan, dithered into the core memory"></div>
+  </div>
+</section>
+
+<section class="sec skills" id="skills" data-plane="skills" aria-labelledby="h-skills">
+  <h2 class="head" id="h-skills" data-kinetic>Skills</h2>
+  <p class="explain" data-scan>Skills are inputs. Switch one on and the signal runs to everything it built.</p>
+  <div class="slot slot-skills" data-slot="skills">
+    <div class="skill-row" role="group" aria-label="Skills"><button class="skill" type="button" data-skill="0" aria-pressed="false">TypeScript</button><button class="skill" type="button" data-skill="1" aria-pressed="false">JavaScript</button><button class="skill" type="button" data-skill="2" aria-pressed="false">Python</button><button class="skill" type="button" data-skill="3" aria-pressed="false">Rust</button><button class="skill" type="button" data-skill="4" aria-pressed="false">LLM agents</button><button class="skill" type="button" data-skill="5" aria-pressed="false">PostgreSQL</button><button class="skill" type="button" data-skill="6" aria-pressed="false">ROS2</button><button class="skill" type="button" data-skill="7" aria-pressed="false">WebGL</button></div>
+    <ol class="skill-outs" aria-label="Projects"><li data-out="agent">Personal agent</li><li data-out="hiriqa">Hiriqa</li><li data-out="polar">Team Polar</li><li data-out="aica-3">AICA-3</li><li data-out="gewis-rdp">GEWIS Remote Desktop</li><li data-out="seaside">Seaside Technologies</li><li data-out="city-robot">City-mapping robot</li><li data-out="this-site">This site</li></ol>
+  </div>
+</section>
+
+<section class="sec contact" id="contact" data-plane="contact" aria-labelledby="h-contact">
+  <h2 class="head" id="h-contact" data-kinetic>Contact</h2>
+  <a class="wire email" href="mailto:s.l.h.theunissen@gmail.com">s.l.h.theunissen@gmail.com</a>
+  <div class="contact-grid">
+    <form class="form" data-form="contact" novalidate>
+      <label><span class="mono">Name</span><input name="name" autocomplete="name" required maxlength="80"></label>
+      <label><span class="mono">Email</span><input name="email" type="email" autocomplete="email" required maxlength="160"></label>
+      <label class="full"><span class="mono">Message</span><textarea name="message" rows="3" required maxlength="4000" data-uart></textarea></label>
+      <input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-foot"><button class="wire send" type="submit">Send</button><p class="status mono" role="status"></p></div>
+    </form>
+    <div class="elsewhere">
+      <a class="wire" href="https://github.com/ZiineZ" target="_blank" rel="noopener">GitHub</a>
+      <a class="wire" href="https://www.linkedin.com/in/stan-theunissen-002aa6291" target="_blank" rel="noopener">LinkedIn</a>
+      
+      <a class="wire" href="/cv" data-route>CV</a>
+    </div>
+  </div>
+  <div class="slot slot-uart" data-slot="uart" aria-hidden="true"></div>
+</section>
+
+<section class="sec guestbook" id="guestbook" data-plane="guestbook" aria-labelledby="h-guestbook">
+  <h2 class="head" id="h-guestbook" data-kinetic>Guestbook</h2>
+  <div class="gb-grid">
+    <div class="gb-text">
+      <p>Write yourself into memory. Draw a mark, sign it, and it stays with the rest.</p>
+      <form class="gb-form" data-form="guestbook">
+        <div class="gb-pad" role="grid" aria-label="Your mark, 8 by 8 cells" data-pad></div>
+        <label><span class="mono">Signed</span><input name="name" maxlength="24" required autocomplete="nickname"></label>
+        <input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="form-foot"><button class="wire send" type="submit">Write to memory</button><p class="status mono" role="status"></p></div>
+      </form>
+    </div>
+    <div class="slot slot-guestbook" data-slot="guestbook" aria-hidden="true"></div>
+  </div>
+  <footer class="foot">
+    <p class="visitors mono"><span>Visitor</span><span class="slot slot-counter" data-slot="counter" aria-hidden="true"></span><span class="sr" data-visitors></span></p>
+    <p class="mono">© 2026 Stan Theunissen · Eindhoven, NL · <a class="wire" href="/colophon" data-route>How this works</a></p>
+  </footer>
+</section></main>
+  </body>
+</html>
